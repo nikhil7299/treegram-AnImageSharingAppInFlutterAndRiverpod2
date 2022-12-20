@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>33115966981-epmviq77j35bhl0jb9euj46dctsjrcje.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.33115966981-epmviq77j35bhl0jb9euj46dctsjrcje</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB8Rg9ev8foXfM40oPxHSODM4BawKD3heI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>33115966981</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.treegram</string>
+	<key>PROJECT_ID</key>
+	<string>treegram72</string>
+	<key>STORAGE_BUCKET</key>
+	<string>treegram72.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:33115966981:ios:d04b5f5f16c0e8fef2966c</string>
+</dict>
+</plist>

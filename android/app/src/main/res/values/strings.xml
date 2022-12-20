@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="facebook_app_id">1186258458764886</string>
+    <string name="fb_login_protocol_scheme">fb1186258458764886</string>
+    <string name="facebook_client_token">a8fa01723596efc05b29fb2f7c8da00c</string>
+    <string name="app_name">Treegram</string>
+</resources>

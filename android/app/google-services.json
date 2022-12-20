@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "33115966981",
+    "project_id": "treegram72",
+    "storage_bucket": "treegram72.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33115966981:android:caa4571356eb1050f2966c",
+        "android_client_info": {
+          "package_name": "com.example.treegram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "33115966981-clnsvp2cf8d8iqb0q6ho9034olt04lef.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCigzjZmbnPqUkMzr7sfa2_z_V_znZoWAg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "33115966981-clnsvp2cf8d8iqb0q6ho9034olt04lef.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "33115966981-epmviq77j35bhl0jb9euj46dctsjrcje.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.treegram"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
