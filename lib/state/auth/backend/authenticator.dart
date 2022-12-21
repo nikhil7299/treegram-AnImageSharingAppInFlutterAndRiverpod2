@@ -6,6 +6,7 @@ import 'package:treegram/state/auth/models/auth_result.dart';
 import 'package:treegram/state/posts/typedefs/user_id.dart';
 
 class Authenticator {
+  const Authenticator();
   User? get currentUser => FirebaseAuth.instance.currentUser;
   UserId? get userId => currentUser?.uid;
   bool get isAlreadyLoggedIn => userId != null;
@@ -18,6 +19,7 @@ class Authenticator {
     await FacebookAuth.instance.logOut();
   }
 
+  // fedrrated login
   Future<AuthResult> loginWithFacebook() async {
     final loginResult = await FacebookAuth.instance.login();
     final token = loginResult.accessToken?.token;
