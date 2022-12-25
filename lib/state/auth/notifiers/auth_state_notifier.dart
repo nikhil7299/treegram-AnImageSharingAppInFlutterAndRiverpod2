@@ -24,7 +24,7 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
     state = const AuthState.unknown();
   }
 
-  Future<void> loginWitnGoogle() async {
+  Future<void> loginWithGoogle() async {
     state = state.copiedWithIsLoading(true);
     final result = await _authenticator.loginWithGoogle();
 
@@ -41,7 +41,7 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
     );
   }
 
-  Future<void> loginWitnFacebook() async {
+  Future<void> loginWithFacebook() async {
     state = state.copiedWithIsLoading(true);
     final result = await _authenticator.loginWithFacebook();
 

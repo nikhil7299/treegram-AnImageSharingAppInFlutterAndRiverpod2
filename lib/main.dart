@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
 import 'package:treegram/state/auth/providers/auth_state_provider.dart';
 import 'package:treegram/state/auth/providers/is_logged_in_provider.dart';
 import 'package:treegram/state/providers/is_loading_provider.dart';
 import 'package:treegram/views/components/loading/loading_screen.dart';
+import 'package:treegram/views/login/login_view.dart';
 
 import 'firebase_options.dart';
 
@@ -74,30 +74,6 @@ class MainView extends StatelessWidget {
             child: const Text("Logout"),
           );
         },
-      ),
-    );
-  }
-}
-
-// for when u are not loggedIn
-class LoginView extends ConsumerWidget {
-  const LoginView({super.key});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Login View")),
-      body: Column(
-        children: [
-          TextButton(
-            onPressed: ref.read(authStateProvider.notifier).loginWitnGoogle,
-            child: const Text("SignIn with Google"),
-          ),
-          TextButton(
-            onPressed: ref.read(authStateProvider.notifier).loginWitnFacebook,
-            child: const Text("SignIn with Facebook"),
-          ),
-        ],
       ),
     );
   }
