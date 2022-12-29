@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:treegram/views/components/animations/empty_contents_animation_view.dart';
 
 class EmptyContentsWithTextAnimationView extends StatelessWidget {
