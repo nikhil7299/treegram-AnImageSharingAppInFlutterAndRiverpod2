@@ -41,7 +41,7 @@ class UserInfoStorage {
           .collection(FirebaseCollectionName.users)
           .add(payload);
       return true;
-    } catch (e) {
+    } catch (_) {
       return false;
     }
   }

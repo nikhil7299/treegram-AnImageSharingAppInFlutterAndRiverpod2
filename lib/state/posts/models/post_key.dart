@@ -10,8 +10,8 @@ class PostKey {
   static const fileType = 'file_type';
   static const fileName = 'file_name';
   static const aspectRatio = 'aspect_ratio';
-  static const postSettings = 'post_settings';
   static const thumbnailStorageId = 'thumbnail_storage_id';
   static const originalFileStorageId = 'original_file_storage_id';
+  static const postSettings = 'post_settings';
   const PostKey._();
 }

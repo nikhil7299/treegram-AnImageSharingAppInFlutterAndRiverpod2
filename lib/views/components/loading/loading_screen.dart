@@ -73,6 +73,7 @@ class LoadingScreen {
                           if (snapshot.hasData) {
                             return Text(
                               snapshot.requireData,
+                              textAlign: TextAlign.center,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium
@@ -94,13 +95,16 @@ class LoadingScreen {
     );
 
     state.insert(overlay);
-    return LoadingScreenController(close: () {
-      textController.close();
-      overlay.remove();
-      return true;
-    }, update: (text) {
-      textController.add(text);
-      return true;
-    });
+    return LoadingScreenController(
+      close: () {
+        textController.close();
+        overlay.remove();
+        return true;
+      },
+      update: (text) {
+        textController.add(text);
+        return true;
+      },
+    );
   }
 }

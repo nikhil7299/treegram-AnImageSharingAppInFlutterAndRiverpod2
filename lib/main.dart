@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       home: Consumer(
         builder: (context, ref, child) {
           //take care of displaying loading screen
-          ref.listen(isLoadingProvider, (_, isLoading) {
+          ref.listen<bool>(isLoadingProvider, (_, isLoading) {
             if (isLoading) {
               LoadingScreen.instance().show(context: context);
             } else {
