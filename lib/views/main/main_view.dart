@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:treegram/state/auth/providers/auth_state_provider.dart';
 import 'package:treegram/state/image_upload/helpers/image_picker_helper.dart';
 import 'package:treegram/state/image_upload/models/file_type.dart';
+import 'package:treegram/state/nav_bar/nav_bar_index_provider.dart';
 import 'package:treegram/state/post_settings/providers/post_settings_provider.dart';
 import 'package:treegram/views/components/dialogs/alert_dialog_model.dart';
 import 'package:treegram/views/components/dialogs/logout_dialog.dart';
@@ -21,10 +22,10 @@ class MainView extends ConsumerStatefulWidget {
 }
 
 class _MainViewState extends ConsumerState<MainView> {
-  late int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     // Removed - return DefaultTabController(tabs:3),
+    final int selectedIndex = ref.watch(navBarIndexProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text(Strings.appName),
@@ -143,11 +144,10 @@ class _MainViewState extends ConsumerState<MainView> {
           height: 60,
           // labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
           onDestinationSelected: (int index) {
-            setState(() {
-              selectedIndex = index;
-            });
+            ref.read(navBarIndexProvider.notifier).value = index;
           },
           selectedIndex: selectedIndex,
+
           destinations: const [
             NavigationDestination(
               selectedIcon: Icon(Icons.home),
