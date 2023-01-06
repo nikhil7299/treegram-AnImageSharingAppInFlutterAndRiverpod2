@@ -83,7 +83,9 @@ class PostCommentsView extends HookConsumerWidget {
                   }
                   return RefreshIndicator(
                     onRefresh: () {
-                      ref.refresh(
+                      // ref.refresh(
+                      //   postCommentsProvider(request.value),
+                      ref.invalidate(
                         postCommentsProvider(request.value),
                       );
                       return Future.delayed(

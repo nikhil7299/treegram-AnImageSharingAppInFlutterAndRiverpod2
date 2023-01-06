@@ -9,6 +9,8 @@ import 'package:treegram/views/components/dialogs/alert_dialog_model.dart';
 import 'package:treegram/views/components/dialogs/logout_dialog.dart';
 import 'package:treegram/views/constants/strings.dart';
 import 'package:treegram/views/create_new_post/create_new_post_view.dart';
+import 'package:treegram/views/tabs/home/home_view.dart';
+import 'package:treegram/views/tabs/search/search_view.dart';
 import 'package:treegram/views/tabs/users_posts/user_posts_view.dart';
 
 class MainView extends ConsumerStatefulWidget {
@@ -37,7 +39,10 @@ class _MainViewState extends ConsumerState<MainView> {
               if (videoFile == null) {
                 return;
               }
-              ref.refresh(postSettingProvider);
+
+              // ref.refresh(postSettingProvider);
+              ref.invalidate(postSettingProvider);
+
               if (!mounted) return;
               Navigator.push(
                 context,
@@ -59,7 +64,8 @@ class _MainViewState extends ConsumerState<MainView> {
               if (imageFile == null) {
                 return;
               }
-              ref.refresh(postSettingProvider);
+              // ref.refresh(postSettingProvider);
+              ref.invalidate(postSettingProvider);
 
               if (!mounted) return;
 
@@ -111,9 +117,9 @@ class _MainViewState extends ConsumerState<MainView> {
       //   ],
       // ),
       body: [
+        const HomeView(),
+        const SearchView(),
         const UserPostsView(),
-        const UserPostsView(),
-        Container(),
       ][selectedIndex],
 
       // bottomNavigationBar: const TabBar(

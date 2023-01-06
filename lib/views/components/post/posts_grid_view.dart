@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:treegram/state/posts/models/post.dart';
 import 'package:treegram/views/components/post/post_thumbnail_view.dart';
+import 'package:treegram/views/post_details/post_details_view.dart';
 
 class PostsGridView extends StatelessWidget {
   final Iterable<Post> posts;
@@ -9,11 +10,11 @@ class PostsGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(5),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
-        mainAxisSpacing: 8,
-        crossAxisSpacing: 8,
+        mainAxisSpacing: 5,
+        crossAxisSpacing: 5,
       ),
       itemCount: posts.length,
       itemBuilder: (context, index) {
@@ -21,13 +22,13 @@ class PostsGridView extends StatelessWidget {
         return PostThumbnailView(
           post: post,
           onTapped: () {
-            // Navigator.of(context).push(
-            //   MaterialPageRoute(
-            //     builder: (_) => PostCommentsView(
-            //       postId: post.postId,
-            //     ),
-            //   ),
-            // );
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => PostDetailsView(
+                  post: post,
+                ),
+              ),
+            );
           },
         );
       },

@@ -2,9 +2,10 @@
     package="com.example.treegram">
     <queries>
         <provider android:authorities="com.facebook.katana.provider.PlatformProvider" />
+        <provider android:authorities="com.facebook.orca.provider.PlatformProvider" />
     </queries>
    <application
-        android:label="treegram"
+        android:label="Treegram"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
