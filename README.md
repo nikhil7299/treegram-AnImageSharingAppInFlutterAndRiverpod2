@@ -14,6 +14,7 @@ A media sharing app in Flutter using Riverpod2 State Management
     <td><img src="screenshots/3.png" width=270></td>
   </tr>
  </table>
+ <br/>
  <table>
   <tr>
     <td align="center">Single Post View</td>
@@ -26,6 +27,7 @@ A media sharing app in Flutter using Riverpod2 State Management
     <td><img src="screenshots/6.png" width=270></td>
   </tr>
  </table>
+ <br/>
  <table>
   <tr>
     <td align="center">Logout AlertBox</td>
@@ -38,6 +40,7 @@ A media sharing app in Flutter using Riverpod2 State Management
     <td><img src="screenshots/9.png" width=270></td>
   </tr>
  </table>
+ <br/>
  <table>
   <tr>
     <td align="center">Delete Post AlertBox</td>
