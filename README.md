@@ -33,9 +33,9 @@ A media sharing app in Flutter using Riverpod2 State Management
      <td align="center">Custom Size Image</td>
   </tr>
   <tr>
-    <td><img src="screenshots/7.png" width=260></td>
-    <td><img src="screenshots/8.png" width=260></td>
-    <td><img src="screenshots/9.png" width=260></td>
+    <td><img src="screenshots/7.png" width=270></td>
+    <td><img src="screenshots/8.png" width=270></td>
+    <td><img src="screenshots/9.png" width=270></td>
   </tr>
  </table>
  <table>
@@ -45,9 +45,9 @@ A media sharing app in Flutter using Riverpod2 State Management
      <td align="center">Comments View</td>
   </tr>
   <tr>
-    <td><img src="screenshots/10.png" width=260></td>
-    <td><img src="screenshots/11.png" width=260></td>
-    <td><img src="screenshots/12.png" width=260></td>
+    <td><img src="screenshots/10.png" width=270></td>
+    <td><img src="screenshots/11.png" width=270></td>
+    <td><img src="screenshots/12.png" width=270></td>
   </tr>
  </table>
 
