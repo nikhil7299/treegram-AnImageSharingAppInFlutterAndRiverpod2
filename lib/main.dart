@@ -36,7 +36,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Main',
       themeMode: ThemeMode.dark,
-      darkTheme: ThemeData.dark(),
+      darkTheme: ThemeData.dark(useMaterial3: true),
+      theme: ThemeData(useMaterial3: true),
       home: Consumer(
         builder: (context, ref, child) {
           //take care of displaying loading screen

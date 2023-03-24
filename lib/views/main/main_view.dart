@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:treegram/state/auth/providers/auth_state_provider.dart';
 import 'package:treegram/state/image_upload/helpers/image_picker_helper.dart';
 import 'package:treegram/state/image_upload/models/file_type.dart';
-import 'package:treegram/state/nav_bar/nav_bar_index_provider.dart';
 import 'package:treegram/state/post_settings/providers/post_settings_provider.dart';
 import 'package:treegram/views/components/dialogs/alert_dialog_model.dart';
 import 'package:treegram/views/components/dialogs/logout_dialog.dart';
@@ -25,146 +24,153 @@ class _MainViewState extends ConsumerState<MainView> {
   @override
   Widget build(BuildContext context) {
     // Removed - return DefaultTabController(tabs:3),
-    final int selectedIndex = ref.watch(navBarIndexProvider);
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(Strings.appName),
-        actions: [
-          IconButton(
-            icon: const FaIcon(
-              FontAwesomeIcons.film,
-              size: 20,
-            ),
-            onPressed: () async {
-              final videoFile = await ImagePickerHelper.pickVideoFromGallery();
-              if (videoFile == null) {
-                return;
-              }
 
-              // ref.refresh(postSettingProvider);
-              ref.invalidate(postSettingProvider);
-
-              if (!mounted) return;
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => CreateNewPostView(
-                    fileToPost: videoFile,
-                    fileType: FileType.video,
-                  ),
-                ),
-              );
-            },
-          ),
-          IconButton(
-            icon: const Icon(
-              Icons.add_photo_alternate_outlined,
-            ),
-            onPressed: () async {
-              final imageFile = await ImagePickerHelper.pickImageFromGallery();
-              if (imageFile == null) {
-                return;
-              }
-              // ref.refresh(postSettingProvider);
-              ref.invalidate(postSettingProvider);
-
-              if (!mounted) return;
-
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => CreateNewPostView(
-                    fileToPost: imageFile,
-                    fileType: FileType.image,
-                  ),
-                ),
-              );
-            },
-          ),
-          IconButton(
-            icon: const Icon(
-              Icons.logout,
-              size: 23,
-            ),
-            onPressed: () async {
-              final shouldLogOut = await const LogoutDialog()
-                  .present(context)
-                  .then((value) => value ?? false);
-              if (shouldLogOut) {
-                await ref.read(authStateProvider.notifier).logOut();
-              }
-            },
-          ),
-        ],
-        // bottom: const TabBar(
-        //   tabs: [
-        //     Tab(
-        //       icon: Icon(Icons.home),
-        //     ),
-        //     Tab(
-        //       icon: Icon(Icons.search),
-        //     ),
-        //     Tab(
-        //       icon: Icon(Icons.person),
-        //     ),
-        //   ],
-        // ),
-      ),
-      // body: const TabBarView(
-      //   children: [
-      //     UserPostsView(),
-      //     UserPostsView(),
-      //     UserPostsView(),
-      //   ],
-      // ),
-      body: [
-        const HomeView(),
-        const SearchView(),
-        const UserPostsView(),
-      ][selectedIndex],
-
-      // bottomNavigationBar: const TabBar(
-      //   padding: EdgeInsets.only(bottom: 10),
-      //   indicatorColor: Colors.deepPurpleAccent,
-      //   tabs: [
-      //     Tab(
-      //       icon: Icon(Icons.home),
-      //     ),
-      //     Tab(
-      //       icon: Icon(Icons.search),
-      //     ),
-      //     Tab(
-      //       icon: Icon(Icons.person),
-      //     ),
-      //   ],
-      // ),
-      bottomNavigationBar: NavigationBarTheme(
-        data: const NavigationBarThemeData(),
-        child: NavigationBar(
-          height: 60,
-          // labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-          onDestinationSelected: (int index) {
-            ref.read(navBarIndexProvider.notifier).value = index;
-          },
-          selectedIndex: selectedIndex,
-
-          destinations: const [
-            NavigationDestination(
-              selectedIcon: Icon(Icons.home),
-              icon: Icon(
-                Icons.home_outlined,
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(Strings.appName),
+          actions: [
+            IconButton(
+              icon: const FaIcon(
+                FontAwesomeIcons.film,
+                size: 20,
               ),
-              label: 'Home',
+              onPressed: () async {
+                final videoFile =
+                    await ImagePickerHelper.pickVideoFromGallery();
+                if (videoFile == null) {
+                  return;
+                }
+
+                // ref.refresh(postSettingProvider);
+                ref.invalidate(postSettingProvider);
+
+                if (!mounted) return;
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => CreateNewPostView(
+                      fileToPost: videoFile,
+                      fileType: FileType.video,
+                    ),
+                  ),
+                );
+              },
             ),
-            NavigationDestination(
-              icon: Icon(Icons.search),
-              label: 'Search',
+            IconButton(
+              icon: const Icon(
+                Icons.add_photo_alternate_outlined,
+              ),
+              onPressed: () async {
+                final imageFile =
+                    await ImagePickerHelper.pickImageFromGallery();
+                if (imageFile == null) {
+                  return;
+                }
+                // ref.refresh(postSettingProvider);
+                ref.invalidate(postSettingProvider);
+
+                if (!mounted) return;
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => CreateNewPostView(
+                      fileToPost: imageFile,
+                      fileType: FileType.image,
+                    ),
+                  ),
+                );
+              },
             ),
-            NavigationDestination(
-              selectedIcon: Icon(Icons.person),
-              icon: Icon(Icons.person_outline),
-              label: 'Profile',
+            IconButton(
+              icon: const Icon(
+                Icons.logout,
+                size: 23,
+              ),
+              onPressed: () async {
+                final shouldLogOut = await const LogoutDialog()
+                    .present(context)
+                    .then((value) => value ?? false);
+                if (shouldLogOut) {
+                  await ref.read(authStateProvider.notifier).logOut();
+                }
+              },
             ),
+          ],
+          bottom: TabBar(
+            splashBorderRadius: BorderRadius.circular(60),
+            splashFactory: NoSplash.splashFactory,
+            indicatorPadding: const EdgeInsets.symmetric(vertical: 6),
+            labelColor: Colors.white,
+            dividerColor: Colors.transparent,
+            indicatorColor: Colors.transparent,
+            indicator: BoxDecoration(
+              color: Colors.deepPurple,
+              borderRadius: BorderRadius.circular(60),
+            ),
+            unselectedLabelColor: Colors.white38,
+            tabs: [
+              Tab(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(
+                      Icons.home,
+                      size: 20,
+                    ),
+                    SizedBox(width: 5),
+                    Text(
+                      "Home",
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                    ),
+                  ],
+                ),
+              ),
+              Tab(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(
+                      Icons.search,
+                      size: 20,
+                    ),
+                    SizedBox(width: 5),
+                    Text(
+                      "Search",
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                    ),
+                  ],
+                ),
+              ),
+              Tab(
+                icon: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(
+                      Icons.person,
+                      size: 20,
+                    ),
+                    SizedBox(width: 5),
+                    Text(
+                      "Profile",
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        body: const TabBarView(
+          children: [
+            HomeView(),
+            SearchView(),
+            UserPostsView(),
           ],
         ),
       ),
